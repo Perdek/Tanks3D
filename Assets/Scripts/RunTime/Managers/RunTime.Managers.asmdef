@@ -1,3 +1,4 @@
 {
-	"name": "RunTime.Managers"
+	"name": "RunTime.Managers",
+	"references":[ "GUID:24b300826f8cbec44a861e638d91f3e8" ]
 }

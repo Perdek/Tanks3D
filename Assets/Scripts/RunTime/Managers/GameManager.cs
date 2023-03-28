@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using RunTime.Constants;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace RunTime.Managers
 {
@@ -16,12 +18,17 @@ namespace RunTime.Managers
 
         private void Awake()
         {
-        
+            LoadScene();
         }
 
         #endregion
 
         #region METHODS
+
+        private void LoadScene()
+        {
+            SceneManager.LoadScene(GameConstants.SceneNames.MainMenuScene, LoadSceneMode.Additive);
+        }
 
         #endregion
     }
