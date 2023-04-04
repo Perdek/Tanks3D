@@ -2,19 +2,17 @@
 
 namespace RunTime.UI.MVC
 {
-    public class Controller : MonoBehaviour
+    [System.Serializable]
+    public abstract class Controller<V, M> : MonoBehaviour where V : View where M : Model
     {
         #region MEMBERS
 
-        [SerializeField] private View _view;
-        [SerializeField] private Model _model;
+        [SerializeField] V _view;
+        private M _model;
 
         #endregion
 
         #region PROPERTIES
-        
-        protected View View => _view;
-        protected Model Model => _model;
 
         #endregion
         
@@ -28,6 +26,17 @@ namespace RunTime.UI.MVC
         #endregion
 
         #region METHODS
+
+
+        protected T GetModel<T>() where T : Model
+        {
+            return _model as T;
+        }
+
+        protected T GetView<T>() where T : View
+        {
+            return _view as T;
+        }
 
         protected virtual void Init()
         {

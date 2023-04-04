@@ -1,6 +1,6 @@
 ﻿namespace RunTime.UI.MVC
 {
-    public class Model
+    public abstract class Model
     {
         #region MEMBERS
 

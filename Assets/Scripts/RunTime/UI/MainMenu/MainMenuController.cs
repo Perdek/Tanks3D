@@ -1,17 +1,19 @@
+using System;
 using RunTime.UI.MVC;
-using UnityEngine;
 
 namespace RunTime.UI.MainMenu
 {
-    public class MainMenuController : Controller
+    [Serializable]
+    public class MainMenuController : Controller<MainMenuView, MainMenuModel>
     {
         #region MEMBERS
 
         #endregion
 
         #region PROPERTIES
-        
-        private MainMenuView ViewModule => View as MainMenuView;
+
+        private MainMenuView ViewModule => GetView<MainMenuView>();
+        private MainMenuModel ModelModule => GetModel<MainMenuModel>();
 
         #endregion
 
@@ -20,7 +22,7 @@ namespace RunTime.UI.MainMenu
         protected override void Init()
         {
             base.Init();
-            View.AddListenerToPlayGameButton(Model.LoadGameplayScene);
+            ViewModule.AddListenerToPlayGameButton(ModelModule.LoadGameplayScene);
         }
 
         #endregion

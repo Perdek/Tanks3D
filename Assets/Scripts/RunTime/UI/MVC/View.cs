@@ -1,6 +1,7 @@
 ﻿namespace RunTime.UI.MVC
 {
-    public class View
+    [System.Serializable]
+    public abstract class View
     {
         #region MEMBERS
 
