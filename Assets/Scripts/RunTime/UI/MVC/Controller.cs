@@ -7,8 +7,8 @@ namespace RunTime.UI.MVC
     {
         #region MEMBERS
 
-        [SerializeField] V _view;
-        private M _model;
+        [SerializeField] private V _view;
+        [SerializeField] private M _model;
 
         #endregion
 
