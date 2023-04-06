@@ -1,5 +1,7 @@
 using System;
+using RunTime.Communicators.LoadingSceneCommunicator;
 using RunTime.UI.MVC;
+using Zenject;
 
 namespace RunTime.UI.MainMenu
 {
@@ -18,6 +20,12 @@ namespace RunTime.UI.MainMenu
         #endregion
 
         #region METHODS
+
+        [Inject]
+        private void InjectDependencies(ILoadingSceneCommunicator loadingSceneCommunicator)
+        {
+            ModelModule.InjectDependencies(loadingSceneCommunicator);
+        }
 
         protected override void Init()
         {

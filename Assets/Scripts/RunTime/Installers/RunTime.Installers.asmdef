@@ -2,7 +2,8 @@
     "name": "RunTime.Installers",
     "rootNamespace": "",
     "references": [
-        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4"
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:eb226b8871fd37f4ca59f29ac6092ee4"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

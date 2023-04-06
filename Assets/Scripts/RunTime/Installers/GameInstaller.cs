@@ -1,3 +1,4 @@
+using RunTime.Communicators.LoadingSceneCommunicator;
 using Zenject;
 
 namespace RunTime.Installers
@@ -6,6 +7,7 @@ namespace RunTime.Installers
     {
         public override void InstallBindings()
         {
+            Container.Bind<ILoadingSceneCommunicator>().To<LoadingSceneCommunicator>().AsSingle();
         }
     }
 }

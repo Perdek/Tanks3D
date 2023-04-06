@@ -1,3 +1,4 @@
+using RunTime.Communicators.LoadingSceneCommunicator;
 using RunTime.UI.MVC;
 
 namespace RunTime.UI.MainMenu
@@ -6,6 +7,8 @@ namespace RunTime.UI.MainMenu
     public class MainMenuModel : Model
     {
         #region MEMBERS
+        
+        private ILoadingSceneCommunicator _loadingSceneCommunicator;
 
         #endregion
 
@@ -17,8 +20,12 @@ namespace RunTime.UI.MainMenu
 
         public void LoadGameplayScene()
         {
-            //TODO call GameMainManager
-            throw new System.NotImplementedException();
+            _loadingSceneCommunicator.NotifyOnLoadGameplayScene();
+        }
+        
+        public void InjectDependencies(ILoadingSceneCommunicator loadingSceneCommunicator)
+        {
+            _loadingSceneCommunicator = loadingSceneCommunicator;
         }
 
         #endregion
