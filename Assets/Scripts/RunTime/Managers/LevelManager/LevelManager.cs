@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace RunTime.Managers
 {
-    public class LevelManager
+    public class LevelManager : MonoBehaviour
     {
         #region MEMBERS
 
