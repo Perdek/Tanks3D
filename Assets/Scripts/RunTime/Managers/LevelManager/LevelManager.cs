@@ -7,6 +7,7 @@ namespace RunTime.Managers
         #region MEMBERS
 
         [SerializeField] private Transform _parentToSpawnLevel;
+        [SerializeField] private LevelEnum _levelEnum;
         private LevelBuilder _levelBuilder;
 
         #endregion
@@ -30,9 +31,14 @@ namespace RunTime.Managers
 
         private void SpawnMap()
         {
-            _levelBuilder.CreateLevel();
+            _levelBuilder.CreateLevel(_levelEnum);
         }
 
         #endregion
+    }
+
+    public enum LevelEnum
+    {
+        FIRST
     }
 }

@@ -17,7 +17,7 @@ namespace RunTime.Managers
             _parentToSpawnLevel = parentToSpawnLevel;
         }
         
-        public void CreateLevel()
+        public void CreateLevel(LevelEnum levelEnum)
         {
             
         }
