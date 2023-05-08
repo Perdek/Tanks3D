@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace RunTime.Managers
 {
@@ -8,6 +9,7 @@ namespace RunTime.Managers
 
         [SerializeField] private Transform _parentToSpawnLevel;
         [SerializeField] private LevelEnum _levelEnum;
+        [SerializeField] private List<TextAsset> _levelsMapFiles;
         private LevelBuilder _levelBuilder;
 
         #endregion
@@ -23,10 +25,10 @@ namespace RunTime.Managers
         #endregion
 
         #region METHODS
-        
+
         private void Init()
         {
-            _levelBuilder = new LevelBuilder(_parentToSpawnLevel);
+            _levelBuilder = new LevelBuilder(_parentToSpawnLevel, _levelsMapFiles);
         }
 
         private void SpawnMap()

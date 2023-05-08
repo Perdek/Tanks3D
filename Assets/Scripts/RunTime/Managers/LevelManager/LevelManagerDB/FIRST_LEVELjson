@@ -1,0 +1,35 @@
+{
+  "symbol_dictionary": {
+    "E": "eagle",
+    "B": "brick",
+    "S": "emptySpace",
+    "N": "nonDestructiveBrick",
+    "G": "grass",
+    "P": "playerStart,
+    "E": "enemyStart
+  },
+  "level": "FIRST",
+  "size": {
+    "width": 17,
+    "height": 17
+  },
+  "map": [
+    "NNNNNNNNNNNNNNNNN",
+    "NESSSSSSSSSSSSSEN",
+    "NBBSSBBSSBBSSSBBN",
+    "NSSSSSSSSSSSSSSSN",
+    "NSBBBSSSSSSBBBSSN",
+    "NSSSSSSSSSSSSSSSN",
+    "NSSSSSSSSSSSSSSSN",
+    "NSSSSSSSSSSSSSSSN",
+    "NSSSSSSSSSSSSSSSN",
+    "NSSSSSSSSSSSSSSSN",
+    "NSSSSSSSSSSSSSSSN",
+    "NSSSSSSSSSSSSSSSN",
+    "NSSSSSSSSSSSSSSSN",
+    "NSSSSSSSPSSSSSSSN",
+    "NSSSSSSBBBSSSSSSN",
+    "NSSSSSSBEBSSSSSSN",
+    "NNNNNNNNNNNNNNNNN"
+  ]
+}
