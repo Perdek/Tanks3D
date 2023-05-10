@@ -1,0 +1,4 @@
+{
+	"name": "Editor.MapGenerator",
+	"references":[ "GUID:06c1ee520e165a24fb99684350d022c1" ]
+}
