@@ -3,28 +3,19 @@ using UnityEngine;
 
 namespace Editor.MapGeneratorModule
 {
-    public class MapGenerator
+    public class MapGenerator : MonoBehaviour
     {
         #region MEMBERS
-
-        private int _mapSizeWidth = 17;
-        private int _mapSizeHeight = 17;
 
         [SerializeField] private List<MapTile> _mapTiles;
 
         #endregion
 
-        #region METHODS
+        #region PROPERTIES
 
-        public void SetMapSizeWidth(int newMapSizeWidth)
-        {
-            _mapSizeWidth = newMapSizeWidth;
-        }
-        
-        public void SetMapSizeHeight(int newMapSizeHeight)
-        {
-            _mapSizeHeight = newMapSizeHeight;
-        }
+        public int MapSizeWidth { get; set; } = 17;
+
+        public int MapSizeHeight { get; set; } = 17;
 
         #endregion
     }
