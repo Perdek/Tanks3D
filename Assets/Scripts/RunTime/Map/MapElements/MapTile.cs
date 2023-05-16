@@ -10,6 +10,12 @@ public class MapTile : MonoBehaviour
 
     #endregion
 
+    #region PROPERTIES
+
+    public MapTileEnum MapTileType => _mapTileType;
+
+    #endregion
+
     #region ENUMS
 
     public enum MapTileEnum

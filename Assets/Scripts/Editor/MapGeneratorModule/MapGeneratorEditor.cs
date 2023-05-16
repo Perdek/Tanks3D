@@ -19,47 +19,36 @@ namespace Editor.MapGeneratorModule
         public override void OnInspectorGUI()
         {
             serializedObject.Update();
-
-            // Reference to the target script
+            
             MapGenerator mapGenerator = (MapGenerator)target;
 
-            // Display the default inspector fields
             DrawDefaultInspector();
-
-            // Begin a grouped box with a rounded border
+    
             EditorGUILayout.BeginVertical(GUI.skin.box);
             EditorGUILayout.LabelField("Map Size", EditorStyles.boldLabel);
 
-            // Begin a horizontal layout for one row
             EditorGUILayout.BeginHorizontal();
 
-            // Create custom GUI field for width with flexible space and limited width
             EditorGUILayout.LabelField("Width", GUILayout.Width(LabelWidth));
             mapGenerator.MapSizeWidth = Mathf.Clamp(EditorGUILayout.IntField(mapGenerator.MapSizeWidth, GUILayout.Width(FieldWidth)), 0, 50);
 
-            // Add flexible space to dynamically adjust the spacing
             GUILayout.FlexibleSpace();
 
-            // Create custom GUI field for height with limited width
             EditorGUILayout.LabelField("Height", GUILayout.Width(LabelWidth));
             mapGenerator.MapSizeHeight = Mathf.Clamp(EditorGUILayout.IntField(mapGenerator.MapSizeHeight, GUILayout.Width(FieldWidth)), 0, 50);
 
-            // End the horizontal layout
             EditorGUILayout.EndHorizontal();
 
-            // End the grouped box
             EditorGUILayout.EndVertical();
 
             EditorGUILayout.Space();
 
-            // Display the map tile setups list
-            EditorGUILayout.LabelField("Map Tile Setups", EditorStyles.boldLabel);
+            /*EditorGUILayout.LabelField("Map Tile Setups", EditorStyles.boldLabel);
             EditorGUI.indentLevel++;
 
-            // Display the array size field
             EditorGUILayout.PropertyField(_mapTileSetupsProperty, new GUIContent("Size"));
 
-            if (_mapTileSetupsProperty.isExpanded)
+            /*if (_mapTileSetupsProperty.isExpanded)
             {
                 // Display the individual map tile setups fields
                 for (int i = 0; i < _mapTileSetupsProperty.arraySize; i++)
@@ -82,9 +71,23 @@ namespace Editor.MapGeneratorModule
 
                     EditorGUILayout.EndHorizontal();
                 }
-            }
+            }#1#
 
-            EditorGUI.indentLevel--;
+            EditorGUI.indentLevel--;*/
+            
+            EditorGUILayout.Space();
+            
+            if (GUILayout.Button("Generate Map"))
+            {
+                mapGenerator.Generate();
+            }
+            
+            EditorGUILayout.Space();
+            
+            if (GUILayout.Button("Clear Map"))
+            {
+                mapGenerator.ClearMap();
+            }
 
             serializedObject.ApplyModifiedProperties();
         }
