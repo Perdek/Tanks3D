@@ -88,6 +88,13 @@ namespace Editor.MapGeneratorModule
             {
                 mapGenerator.ClearMap();
             }
+            
+            EditorGUILayout.Space();
+            
+            if (GUILayout.Button("Save Map"))
+            {
+                mapGenerator.SaveMapToJson("D:");
+            }
 
             serializedObject.ApplyModifiedProperties();
         }

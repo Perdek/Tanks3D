@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -77,6 +78,30 @@ namespace Editor.MapGeneratorModule
             {
                 DestroyImmediate(transform.GetChild(i).gameObject);
             }
+        }
+        
+        public void SaveMapToJson(string filePath)
+        {
+            List<List<MapTile.MapTileEnum>> mapList = new List<List<MapTile.MapTileEnum>>();
+
+            int width = _mapArray.GetLength(0);
+            int height = _mapArray.GetLength(1);
+
+            for (int x = 0; x < width; x++)
+            {
+                List<MapTile.MapTileEnum> row = new List<MapTile.MapTileEnum>();
+                for (int y = 0; y < height; y++)
+                {
+                    row.Add(_mapArray[x, y]);
+                }
+                mapList.Add(row);
+            }
+
+            string json = JsonUtility.ToJson(mapList, true);
+
+            File.WriteAllText(filePath, json);
+
+            Debug.Log("Map saved to JSON: " + filePath);
         }
         
         private MapTile.MapTileEnum[,] CreateMapTemplate(int width, int height)
