@@ -21,6 +21,8 @@ namespace Editor.MapGeneratorModule
         [SerializeField] private List<MapTileSetup> _mapTileSetups = new List<MapTileSetup>();
         [SerializeField] private List<MapTile> _mapTiles;
 
+        private string _savePath;
+        private string _loadPath;
         private int _mapSizeWidth = 17;
         private int _mapSizeHeight = 17;
         private MapTile.MapTileEnum[,] _mapArray;
@@ -42,6 +44,18 @@ namespace Editor.MapGeneratorModule
         }
 
         public List<MapTileSetup> MapTileSetups => _mapTileSetups;
+
+        public string SavePath
+        {
+            get => _savePath;
+            set => _savePath = value;
+        }
+
+        public string LoadPath
+        {
+            get => _loadPath;
+            set => _loadPath = value;
+        }
 
         #endregion
 
@@ -79,7 +93,7 @@ namespace Editor.MapGeneratorModule
                 DestroyImmediate(transform.GetChild(i).gameObject);
             }
         }
-        
+
         public void SaveMapToJson(string filePath)
         {
             List<List<MapTile.MapTileEnum>> mapList = new List<List<MapTile.MapTileEnum>>();
@@ -103,7 +117,12 @@ namespace Editor.MapGeneratorModule
 
             Debug.Log("Map saved to JSON: " + filePath);
         }
-        
+
+        public void LoadMapFromJson(string filePath)
+        {
+
+        }
+
         private MapTile.MapTileEnum[,] CreateMapTemplate(int width, int height)
         {
             MapTile.MapTileEnum[,] mapArray = new MapTile.MapTileEnum[width, height];

@@ -8,8 +8,12 @@ namespace Editor.MapGeneratorModule
     {
         private const int LabelWidth = 50;
         private const int FieldWidth = 30;
+        private const int BorderRadius = 5;
 
         private SerializedProperty _mapTileSetupsProperty;
+
+        private GUIStyle _roundedBoxStyle;
+        private GUIStyle _titleStyle;
 
         private void OnEnable()
         {
@@ -19,13 +23,19 @@ namespace Editor.MapGeneratorModule
         public override void OnInspectorGUI()
         {
             serializedObject.Update();
-            
+
             MapGenerator mapGenerator = (MapGenerator)target;
 
             DrawDefaultInspector();
-    
-            EditorGUILayout.BeginVertical(GUI.skin.box);
-            EditorGUILayout.LabelField("Map Size", EditorStyles.boldLabel);
+
+            _roundedBoxStyle = new GUIStyle(GUI.skin.box);
+            _roundedBoxStyle.border = new RectOffset(BorderRadius, BorderRadius, BorderRadius, BorderRadius);
+
+            _titleStyle = new GUIStyle(EditorStyles.boldLabel);
+            _titleStyle.alignment = TextAnchor.MiddleCenter;
+
+            EditorGUILayout.BeginVertical(_roundedBoxStyle);
+            EditorGUILayout.LabelField("Map Size", _titleStyle);
 
             EditorGUILayout.BeginHorizontal();
 
@@ -37,64 +47,55 @@ namespace Editor.MapGeneratorModule
             EditorGUILayout.LabelField("Height", GUILayout.Width(LabelWidth));
             mapGenerator.MapSizeHeight = Mathf.Clamp(EditorGUILayout.IntField(mapGenerator.MapSizeHeight, GUILayout.Width(FieldWidth)), 0, 50);
 
+
+            EditorGUILayout.Space();
+
+            if (GUILayout.Button("Generate Map"))
+            {
+                mapGenerator.Generate();
+            }
+
+            EditorGUILayout.Space();
+
+            if (GUILayout.Button("Clear Map"))
+            {
+                mapGenerator.ClearMap();
+            }
+
+            EditorGUILayout.Space();
+
             EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.EndVertical();
 
             EditorGUILayout.Space();
 
-            /*EditorGUILayout.LabelField("Map Tile Setups", EditorStyles.boldLabel);
-            EditorGUI.indentLevel++;
+            EditorGUILayout.BeginVertical(_roundedBoxStyle);
+            EditorGUILayout.LabelField("Save & Load Settings", _titleStyle);
 
-            EditorGUILayout.PropertyField(_mapTileSetupsProperty, new GUIContent("Size"));
+            EditorGUILayout.LabelField("Save Path");
+            mapGenerator.SavePath = EditorGUILayout.TextField(mapGenerator.SavePath);
 
-            /*if (_mapTileSetupsProperty.isExpanded)
-            {
-                // Display the individual map tile setups fields
-                for (int i = 0; i < _mapTileSetupsProperty.arraySize; i++)
-                {
-                    SerializedProperty mapTileSetupProperty = _mapTileSetupsProperty.GetArrayElementAtIndex(i);
-
-                    EditorGUILayout.BeginHorizontal();
-
-                    // MapTileType field
-                    SerializedProperty mapTileTypeProperty = mapTileSetupProperty.FindPropertyRelative("MapTileType");
-                    EditorGUILayout.PropertyField(mapTileTypeProperty, GUIContent.none, GUILayout.Width(120));
-
-                    // Character field
-                    SerializedProperty characterProperty = mapTileSetupProperty.FindPropertyRelative("Character");
-                    EditorGUILayout.PropertyField(characterProperty, GUIContent.none, GUILayout.Width(30));
-
-                    // Percentage field
-                    SerializedProperty percentProperty = mapTileSetupProperty.FindPropertyRelative("Percent");
-                    EditorGUILayout.PropertyField(percentProperty, GUIContent.none, GUILayout.Width(50));
-
-                    EditorGUILayout.EndHorizontal();
-                }
-            }#1#
-
-            EditorGUI.indentLevel--;*/
-            
             EditorGUILayout.Space();
-            
-            if (GUILayout.Button("Generate Map"))
-            {
-                mapGenerator.Generate();
-            }
-            
-            EditorGUILayout.Space();
-            
-            if (GUILayout.Button("Clear Map"))
-            {
-                mapGenerator.ClearMap();
-            }
-            
-            EditorGUILayout.Space();
-            
+
             if (GUILayout.Button("Save Map"))
             {
-                mapGenerator.SaveMapToJson("D:");
+                mapGenerator.SaveMapToJson(mapGenerator.SavePath);
             }
+
+            EditorGUILayout.Space();
+
+            EditorGUILayout.LabelField("Load Path");
+            mapGenerator.LoadPath = EditorGUILayout.TextField(mapGenerator.LoadPath);
+
+            EditorGUILayout.Space();
+
+            if (GUILayout.Button("Load Map"))
+            {
+                mapGenerator.LoadMapFromJson(mapGenerator.LoadPath);
+            }
+
+            EditorGUILayout.EndVertical();
 
             serializedObject.ApplyModifiedProperties();
         }
