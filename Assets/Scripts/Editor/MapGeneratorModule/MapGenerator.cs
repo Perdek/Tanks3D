@@ -99,24 +99,7 @@ namespace Editor.MapGeneratorModule
 
         public void SaveMapToJson(string folderPath, string fileName)
         {
-            List<List<MapTile.MapTileEnum>> mapList = new List<List<MapTile.MapTileEnum>>();
-
-            int width = _mapArray?.GetLength(0) ?? 0;
-            int height = _mapArray?.GetLength(1) ?? 0;
-
-            for (int x = 0; x < width; x++)
-            {
-                List<MapTile.MapTileEnum> row = new List<MapTile.MapTileEnum>();
-
-                for (int y = 0; y < height; y++)
-                {
-                    row.Add(_mapArray[x, y]);
-                }
-
-                mapList.Add(row);
-            }
-
-            string json = JsonUtility.ToJson(mapList, true);
+            string json = SerializeMapToJson();
 
             if (!Directory.Exists(folderPath))
             {
@@ -136,10 +119,71 @@ namespace Editor.MapGeneratorModule
             }
         }
 
-
         public void LoadMapFromJson(string filePath)
         {
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                List<List<MapTile.MapTileEnum>> mapList = JsonUtility.FromJson<List<List<MapTile.MapTileEnum>>>(json);
 
+                if (mapList != null && mapList.Count > 0)
+                {
+                    int width = mapList.Count;
+                    int height = mapList[0].Count;
+
+                    _mapArray = new MapTile.MapTileEnum[width, height];
+
+                    for (int x = 0; x < width; x++)
+                    {
+                        List<MapTile.MapTileEnum> row = mapList[x];
+
+                        if (row.Count != height)
+                        {
+                            Debug.LogError("Invalid map data: Map dimensions do not match.");
+                            return;
+                        }
+
+                        for (int y = 0; y < height; y++)
+                        {
+                            _mapArray[x, y] = row[y];
+                        }
+                    }
+
+                    Debug.Log("Map loaded from JSON: " + filePath);
+                }
+                else
+                {
+                    Debug.LogError("Invalid map data: Unable to deserialize JSON.");
+                }
+            }
+            else
+            {
+                Debug.LogError("File not found: " + filePath);
+            }
+        }
+
+        
+        private string SerializeMapToJson()
+        {
+            List<List<MapTile.MapTileEnum>> mapList = new List<List<MapTile.MapTileEnum>>();
+
+            int width = _mapArray?.GetLength(0) ?? 0;
+            int height = _mapArray?.GetLength(1) ?? 0;
+
+            for (int x = 0; x < width; x++)
+            {
+                List<MapTile.MapTileEnum> row = new List<MapTile.MapTileEnum>();
+
+                for (int y = 0; y < height; y++)
+                {
+                    row.Add(_mapArray[x, y]);
+                }
+
+                mapList.Add(row);
+            }
+
+            string json = JsonUtility.ToJson(mapList, true);
+            return json;
         }
 
         private MapTile.MapTileEnum[,] CreateMapTemplate(int width, int height)
