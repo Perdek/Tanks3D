@@ -19,7 +19,7 @@ namespace Editor.MapGeneratorModule
         #region MEMBERS
 
         [SerializeField] private List<MapTileSetup> _mapTileSetups = new List<MapTileSetup>();
-        [SerializeField] private List<MapTile> _mapTiles;
+        [SerializeField] private List<MapTile> _mapTiles = new List<MapTile>();
 
         private string _savePath;
         private string _loadPath;
@@ -77,7 +77,10 @@ namespace Editor.MapGeneratorModule
                     MapTile.MapTileEnum tileType = _mapArray[x, y];
                     Vector3 position = new Vector3(x, 0, y);
 
-                    GameObject tile = GameObject.Instantiate(_mapTiles.Find(mapTile => mapTile.MapTileType == tileType).gameObject);
+                    MapTile mapTileToSpawn = _mapTiles.Find(mapTile => mapTile.MapTileType == tileType);
+
+                    GameObject tile = mapTileToSpawn != null ? GameObject.Instantiate(mapTileToSpawn.gameObject) : GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    
                     tile.transform.SetParent(transform);
                     tile.transform.position = position;
                 }
@@ -94,29 +97,45 @@ namespace Editor.MapGeneratorModule
             }
         }
 
-        public void SaveMapToJson(string filePath)
+        public void SaveMapToJson(string folderPath, string fileName)
         {
             List<List<MapTile.MapTileEnum>> mapList = new List<List<MapTile.MapTileEnum>>();
 
-            int width = _mapArray.GetLength(0);
-            int height = _mapArray.GetLength(1);
+            int width = _mapArray?.GetLength(0) ?? 0;
+            int height = _mapArray?.GetLength(1) ?? 0;
 
             for (int x = 0; x < width; x++)
             {
                 List<MapTile.MapTileEnum> row = new List<MapTile.MapTileEnum>();
+
                 for (int y = 0; y < height; y++)
                 {
                     row.Add(_mapArray[x, y]);
                 }
+
                 mapList.Add(row);
             }
 
             string json = JsonUtility.ToJson(mapList, true);
 
-            File.WriteAllText(filePath, json);
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
 
-            Debug.Log("Map saved to JSON: " + filePath);
+            try
+            {
+                string filePath = Path.Combine(folderPath, fileName);
+                File.WriteAllText(filePath, json);
+
+                Debug.Log("Map saved to JSON: " + filePath);
+            }
+            catch (UnauthorizedAccessException exception)
+            {
+                Debug.LogError(exception);
+            }
         }
+
 
         public void LoadMapFromJson(string filePath)
         {

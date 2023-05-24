@@ -80,7 +80,7 @@ namespace Editor.MapGeneratorModule
 
             if (GUILayout.Button("Save Map"))
             {
-                mapGenerator.SaveMapToJson(mapGenerator.SavePath);
+                mapGenerator.SaveMapToJson(mapGenerator.SavePath, "Map_01");
             }
 
             EditorGUILayout.Space();

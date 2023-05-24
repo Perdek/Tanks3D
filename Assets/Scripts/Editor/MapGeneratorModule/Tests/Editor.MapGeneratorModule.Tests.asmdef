@@ -1,0 +1,20 @@
+{
+    "name": "Editor.MapGeneratorModule.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e9745f6a32442194c8dc5a43e9ab86f9",
+        "GUID:7c04f0dfa9243c04681a55d90d3ff3fc",
+        "GUID:0cfa8715c577a8743baa8e76edcde1ae"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
