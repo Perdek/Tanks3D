@@ -5,7 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="825bd176-c50f-4289-824a-3b8480a26d90" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tanks3D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tanks3D/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelElements.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelElements/Bricks.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelElements/Bricks.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelElements/Eagle.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelElements/Eagle.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelElements/EmptySpace.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelElements/EmptySpace.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelElements/Grass.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelElements/Grass.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelElements/NonDestructiveBricks.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelElements/NonDestructiveBricks.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelElements/Water.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelElements/Water.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/MapGeneratorModule.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/MapGeneratorModule/Editor.MapGenerator.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/MapGeneratorModule/Editor.MapGenerator.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/MapGeneratorModule/MapGenerator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/MapGeneratorModule/MapGenerator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/MapGeneratorModule/MapGeneratorEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/MapGeneratorModule/MapGeneratorEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/MapGeneratorModule/Tests.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/MapGeneratorModule/Tests/Editor.MapGeneratorModule.Tests.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/MapGeneratorModule/Tests/Editor.MapGeneratorModule.Tests.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/MapGeneratorModule/Tests/MapGeneratorTests.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/MapGeneratorModule/Tests/MapGeneratorTests.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RunTime/Map/MapElements.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RunTime/Map/MapElements/MapTile.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RunTime/Map/MapElements/MapTile.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +46,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10b6135e63434fdba4fc6c109928ab3b50800/75/3eb6fd4a/Reflect.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Map/MapGeneratorModule/MapGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RunTime/GameConstants/SceneNames.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RunTime/Map/MapElements/MapTile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RunTime/UI/MainMenu/MainMenuController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_RichTextTagsCommon.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -43,7 +74,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -56,7 +87,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\UNITY INSTALLS\2022.2.12f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\UNITY INSTALLS\2022.2.19f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath M:\Repos\Tanks3D -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="M:\Repos\Tanks3D" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -64,7 +95,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\UNITY INSTALLS\2022.2.12f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\UNITY INSTALLS\2022.2.19f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath M:\Repos\Tanks3D -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="M:\Repos\Tanks3D" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -119,7 +150,15 @@
       <workItem from="1681733753144" duration="1606000" />
       <workItem from="1681821053330" duration="1780000" />
       <workItem from="1682425146212" duration="1799000" />
-      <workItem from="1683721378329" duration="1656000" />
+      <workItem from="1683721378329" duration="2048000" />
+      <workItem from="1684153865927" duration="160000" />
+      <workItem from="1684154040419" duration="2006000" />
+      <workItem from="1684238541683" duration="2684000" />
+      <workItem from="1684843340272" duration="2080000" />
+      <workItem from="1684918983495" duration="3262000" />
+      <workItem from="1685362726312" duration="2382000" />
+      <workItem from="1686026583795" duration="1186000" />
+      <workItem from="1686055297319" duration="320000" />
     </task>
     <task id="LOCAL-00001" summary="Loading main menu scene">
       <created>1680005512388</created>
@@ -205,30 +244,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/RunTime/UI/MVC/Controller.cs</url>
-          <line>43</line>
-          <properties documentPath="M:\Repos\Tanks3D\Assets\Scripts\RunTime\UI\MVC\Controller.cs" initialLine="43" containingFunctionPresentation="method 'Init'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Editor/MapGeneratorModule/Tests/MapGeneratorTests.cs</url>
+          <line>47</line>
+          <properties documentPath="M:\Repos\Tanks3D\Assets\Scripts\Editor\MapGeneratorModule\Tests\MapGeneratorTests.cs" initialLine="47" containingFunctionPresentation="Method 'SaveMapToJson_FileSaved'">
             <startOffsets>
-              <option value="793" />
+              <option value="1176" />
             </startOffsets>
             <endOffsets>
-              <option value="806" />
+              <option value="1207" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/RunTime/UI/MainMenu/MainMenuController.cs</url>
-          <line>26</line>
-          <properties documentPath="M:\Repos\Tanks3D\Assets\Scripts\RunTime\UI\MainMenu\MainMenuController.cs" initialLine="26" containingFunctionPresentation="Method 'InjectDependencies'">
-            <startOffsets>
-              <option value="631" />
-            </startOffsets>
-            <endOffsets>
-              <option value="688" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

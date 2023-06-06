@@ -63,7 +63,7 @@ namespace Editor.MapGeneratorModule.Tests
             string fileName = "Map_01";
             string fullPath = Path.Combine(folderPath, fileName);
             
-            _mapGenerator.SaveMapToJson(folderPath, fileName);
+            _mapGenerator.SaveMapToJson(folderPath, fileName);  //it shouldn't be here
             _mapGenerator.LoadMapFromJson(fullPath);
 
             // Assert

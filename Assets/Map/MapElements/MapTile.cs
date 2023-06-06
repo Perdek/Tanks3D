@@ -18,6 +18,7 @@ public class MapTile : MonoBehaviour
 
     #region ENUMS
 
+    [System.Serializable]
     public enum MapTileEnum
     {
         EMPTY_SPACE,

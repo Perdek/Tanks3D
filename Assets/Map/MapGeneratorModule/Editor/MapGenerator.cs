@@ -165,10 +165,10 @@ namespace Editor.MapGeneratorModule
         
         private string SerializeMapToJson()
         {
-            List<List<MapTile.MapTileEnum>> mapList = new List<List<MapTile.MapTileEnum>>();
-
             int width = _mapArray?.GetLength(0) ?? 0;
             int height = _mapArray?.GetLength(1) ?? 0;
+
+            List<string> rows = new List<string>();
 
             for (int x = 0; x < width; x++)
             {
@@ -179,10 +179,11 @@ namespace Editor.MapGeneratorModule
                     row.Add(_mapArray[x, y]);
                 }
 
-                mapList.Add(row);
+                string rowJson = JsonUtility.ToJson(row);
+                rows.Add(rowJson);
             }
 
-            string json = JsonUtility.ToJson(mapList, true);
+            string json = "[" + string.Join(",", rows) + "]";
             return json;
         }
 
