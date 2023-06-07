@@ -1,18 +1,29 @@
 using UnityEngine;
 
-public class MapTile : MonoBehaviour
+public class MapTile
 {
     #region MEMBERS
 
-    [SerializeField] private MapTileEnum _mapTileType;
-    [SerializeField] private bool _destructible;
-    [SerializeField] private bool _land;
+    private readonly MapTileEnum _mapTileType;
+    private readonly bool _destructible;
+    private readonly bool _land;
 
     #endregion
 
     #region PROPERTIES
 
     public MapTileEnum MapTileType => _mapTileType;
+
+    #endregion
+
+    #region METHODS
+
+    public MapTile(MapTileEnum mapTileType, bool destructible, bool land)
+    {
+        _mapTileType = mapTileType;
+        _destructible = destructible;
+        _land = land;
+    }
 
     #endregion
 

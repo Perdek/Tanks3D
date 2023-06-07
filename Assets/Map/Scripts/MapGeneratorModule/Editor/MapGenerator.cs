@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Map.Scripts.MapElements;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Editor.MapGeneratorModule
 {
@@ -19,13 +19,12 @@ namespace Editor.MapGeneratorModule
         #region MEMBERS
 
         [SerializeField] private List<MapTileSetup> _mapTileSetups = new List<MapTileSetup>();
-        [SerializeField] private List<MapTile> _mapTiles = new List<MapTile>();
+        [SerializeField] private List<MapTileSetupComponent> _mapTiles = new List<MapTileSetupComponent>();
 
-        private string _savePath;
-        private string _loadPath;
         private int _mapSizeWidth = 17;
         private int _mapSizeHeight = 17;
         private MapTile.MapTileEnum[,] _mapArray;
+        private Map.Scripts.MapElements.Map _map;
 
         #endregion
 
@@ -45,16 +44,17 @@ namespace Editor.MapGeneratorModule
 
         public List<MapTileSetup> MapTileSetups => _mapTileSetups;
 
-        public string SavePath
-        {
-            get => _savePath;
-            set => _savePath = value;
-        }
+        public string SavePath { get; set; }
 
-        public string LoadPath
+        public string LoadPath { get; set; }
+
+        #endregion
+
+        #region UNITY_METHODS
+
+        private void OnValidate()
         {
-            get => _loadPath;
-            set => _loadPath = value;
+            _map = new Map.Scripts.MapElements.Map(_mapTiles);
         }
 
         #endregion
@@ -68,16 +68,16 @@ namespace Editor.MapGeneratorModule
                 DestroyImmediate(transform.GetChild(i).gameObject);
             }
 
-            _mapArray = CreateMapTemplate(_mapSizeWidth, _mapSizeHeight);
+            _mapArray = _map.GenerateMap(_mapSizeWidth, _mapSizeHeight);
 
-            for (int x = 0; x < MapSizeWidth; x++)
+            for (int x = 0; x < _mapSizeWidth; x++)
             {
-                for (int y = 0; y < MapSizeHeight; y++)
+                for (int y = 0; y < _mapSizeHeight; y++)
                 {
                     MapTile.MapTileEnum tileType = _mapArray[x, y];
                     Vector3 position = new Vector3(x, 0, y);
 
-                    MapTile mapTileToSpawn = _mapTiles.Find(mapTile => mapTile.MapTileType == tileType);
+                    MapTileSetupComponent mapTileToSpawn = _mapTiles.Find(mapTile => mapTile.MapTileType == tileType);
 
                     GameObject tile = mapTileToSpawn != null ? GameObject.Instantiate(mapTileToSpawn.gameObject) : GameObject.CreatePrimitive(PrimitiveType.Cube);
                     
@@ -185,27 +185,6 @@ namespace Editor.MapGeneratorModule
 
             string json = "[" + string.Join(",", rows) + "]";
             return json;
-        }
-
-        private MapTile.MapTileEnum[,] CreateMapTemplate(int width, int height)
-        {
-            MapTile.MapTileEnum[,] mapArray = new MapTile.MapTileEnum[width, height];
-
-            for (int x = 0; x < width; x++)
-            {
-                for (int y = 0; y < height; y++)
-                {
-                    mapArray[x, y] = GetRandomTileType();
-                }
-            }
-
-            return mapArray;
-        }
-
-        private MapTile.MapTileEnum GetRandomTileType()
-        {
-            Array tileTypes = Enum.GetValues(typeof(MapTile.MapTileEnum));
-            return (MapTile.MapTileEnum)tileTypes.GetValue(Random.Range(0, tileTypes.Length));
         }
 
         #endregion
