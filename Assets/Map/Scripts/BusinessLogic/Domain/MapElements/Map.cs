@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Map.Scripts.MapElements
+namespace Map.Scripts.Domain.MapElements
 {
     public class Map
     {

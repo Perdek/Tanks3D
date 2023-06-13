@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Map.Scripts.MapElements;
+using Map.Scripts.Domain.MapElements;
 using UnityEngine;
 
-namespace Editor.MapGeneratorModule
+namespace Map.Scripts.MapGeneratorModule.Editor
 {
     [Serializable]
     public class MapTileSetup
@@ -24,7 +24,7 @@ namespace Editor.MapGeneratorModule
         private int _mapSizeWidth = 17;
         private int _mapSizeHeight = 17;
         private MapTile.MapTileEnum[,] _mapArray;
-        private Map.Scripts.MapElements.Map _map;
+        private Domain.MapElements.Map _map;
 
         #endregion
 
@@ -54,7 +54,7 @@ namespace Editor.MapGeneratorModule
 
         private void OnValidate()
         {
-            _map = new Map.Scripts.MapElements.Map(_mapTiles);
+            _map = new Domain.MapElements.Map(_mapTiles);
         }
 
         #endregion

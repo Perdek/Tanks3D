@@ -1,10 +1,10 @@
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
-namespace Editor.MapGeneratorModule
+namespace Map.Scripts.MapGeneratorModule.Editor
 {
     [CustomEditor(typeof(MapGenerator))]
-    public class MapGeneratorEditor : UnityEditor.Editor
+    public class MapGeneratorToolEditor : UnityEditor.Editor
     {
         private const int LabelWidth = 50;
         private const int FieldWidth = 30;
@@ -28,11 +28,15 @@ namespace Editor.MapGeneratorModule
 
             DrawDefaultInspector();
 
-            _roundedBoxStyle = new GUIStyle(GUI.skin.box);
-            _roundedBoxStyle.border = new RectOffset(BorderRadius, BorderRadius, BorderRadius, BorderRadius);
+            _roundedBoxStyle = new GUIStyle(GUI.skin.box)
+            {
+                border = new RectOffset(BorderRadius, BorderRadius, BorderRadius, BorderRadius)
+            };
 
-            _titleStyle = new GUIStyle(EditorStyles.boldLabel);
-            _titleStyle.alignment = TextAnchor.MiddleCenter;
+            _titleStyle = new GUIStyle(EditorStyles.boldLabel)
+            {
+                alignment = TextAnchor.MiddleCenter
+            };
 
             EditorGUILayout.BeginVertical(_roundedBoxStyle);
             EditorGUILayout.LabelField("Map Size", _titleStyle);

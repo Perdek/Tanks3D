@@ -1,12 +1,12 @@
 using UnityEngine;
 
-namespace Map.Scripts.MapElements
+namespace Map.Scripts.Domain.MapElements
 {
     public class MapTileSetupComponent : MonoBehaviour
     {
         #region MEMBERS
 
-        [SerializeField] MapTile.MapTileEnum _mapTileType;
+        [SerializeField] private MapTile.MapTileEnum _mapTileType;
         [SerializeField] private bool _destructible;
         [SerializeField] private bool _land;
 
