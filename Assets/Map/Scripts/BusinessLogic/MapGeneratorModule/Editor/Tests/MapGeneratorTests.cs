@@ -2,7 +2,7 @@ using System.IO;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace Map.Scripts.MapGeneratorModule.Editor.Tests
+namespace Map.Scripts.BusinessLogic.MapGeneratorModule.Editor.Tests
 {
     public class MapGeneratorTests
     {

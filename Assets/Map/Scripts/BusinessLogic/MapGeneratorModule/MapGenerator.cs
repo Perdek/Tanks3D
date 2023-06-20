@@ -1,24 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Map.Scripts.BusinessLogic.Domain.MapElements;
 using Map.Scripts.Domain.MapElements;
 using UnityEngine;
 
-namespace Map.Scripts.MapGeneratorModule.Editor
+namespace Map.Scripts.BusinessLogic.MapGeneratorModule
 {
-    [Serializable]
-    public class MapTileSetup
-    {
-        public MapTile.MapTileEnum MapTileType { get; set; }
-        public char Symbol { get; set; }
-        public float Percent { get; set; }
-    }
-
     public class MapGenerator : MonoBehaviour
     {
         #region MEMBERS
-
-        [SerializeField] private List<MapTileSetup> _mapTileSetups = new List<MapTileSetup>();
+        
         [SerializeField] private List<MapTileSetupComponent> _mapTiles = new List<MapTileSetupComponent>();
 
         private int _mapSizeWidth = 17;
@@ -41,9 +33,7 @@ namespace Map.Scripts.MapGeneratorModule.Editor
             get => _mapSizeHeight;
             set => _mapSizeHeight = Mathf.Max(0, value);
         }
-
-        public List<MapTileSetup> MapTileSetups => _mapTileSetups;
-
+        
         public string SavePath { get; set; }
 
         public string LoadPath { get; set; }

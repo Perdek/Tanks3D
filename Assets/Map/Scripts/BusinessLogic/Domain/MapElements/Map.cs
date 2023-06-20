@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Map.Scripts.Domain.MapElements;   //it should not have this import
 
-namespace Map.Scripts.Domain.MapElements
+namespace Map.Scripts.BusinessLogic.Domain.MapElements
 {
     public class Map
     {

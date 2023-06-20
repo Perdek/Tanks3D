@@ -1,4 +1,4 @@
-namespace Map.Scripts.Domain.MapElements
+namespace Map.Scripts.BusinessLogic.Domain.MapElements
 {
     public class MapTile
     {

@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Map.Scripts.MapGeneratorModule.Editor
+namespace Map.Scripts.BusinessLogic.MapGeneratorModule.Editor
 {
     [CustomEditor(typeof(MapGenerator))]
     public class MapGeneratorToolEditor : UnityEditor.Editor

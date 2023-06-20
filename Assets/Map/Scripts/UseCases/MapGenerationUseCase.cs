@@ -4,10 +4,10 @@ namespace Map.Scripts.UseCases
     {
         #region METHODS
 
-        public void GenerateMap(int width, int height, Domain.MapElements.Map map)
-        {
-            map.GenerateMap(width, height);
-        }
+        // public void GenerateMap(int width, int height, Map.Scripts.Domain.MapElements.Map map)
+        // {
+        //     map.GenerateMap(width, height);
+        // }
 
         #endregion
     }
